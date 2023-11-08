@@ -46,4 +46,6 @@ function f1(x)
     return sin(x)
 end
 
-newton(1.,f1,df,0.00001,1000)
+print(round(newton(f1,3,0.00001,df,1000),digits=15))
+
+    
