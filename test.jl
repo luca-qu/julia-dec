@@ -37,7 +37,7 @@ function erra(func, times, res)
     return abs.(an - res)
 end
 
-function plota()
+function plot_conv()
 	t0 = 0.0
 	tn = 1.0
 	n0 = 1
@@ -55,11 +55,12 @@ end
 function ploterr()
     N = 40000
     n = range(1, 1000)
-    x, ys = explicit_euler(f, 0.03, 1.0, 1000, 30.0)
+    x, ys = explicit_euler(f, 0.03, 1.0, 1000, 1.0)
     err = erra(f_a, x, ys)
 
     p = plot(n, err, ylim=[1e-10, 1.0], xlabel="n", ylabel="erra")
     plot!(xaxis=:log, yaxis=:log)
 end
 
-plota()
+plot_conv()
+ploterr()
